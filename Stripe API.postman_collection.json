@@ -1,0 +1,484 @@
+{
+	"info": {
+		"_postman_id": "a67db0d2-a4a6-4e72-aef1-08893fc2d37f",
+		"name": "Stripe API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Charges",
+			"description": "",
+			"item": [
+				{
+					"name": "Create a charge",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "amount",
+									"value": "2000",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "currency",
+									"value": "usd",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "source",
+									"value": "tok_visa",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Charge for arinze.nnaji@fcmb.com",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.stripe.com/v1/charges",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"charges"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a charge",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "Charge for this",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.stripe.com/v1/charges/ch_1CkT8t2eZvKYlo2C59BewlSN",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"charges",
+								"ch_1CkT8t2eZvKYlo2C59BewlSN"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Capture a Charge",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.stripe.com/v1/charges/ch_1CkT8t2eZvKYlo2C59BewlSN/capture",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"charges",
+								"ch_1CkT8t2eZvKYlo2C59BewlSN",
+								"capture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a Charge",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.stripe.com/v1/charges/ch_1CkT8t2eZvKYlo2C59BewlSN",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"charges",
+								"ch_1CkT8t2eZvKYlo2C59BewlSN"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all charges",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.stripe.com/v1/charges?limit=3",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"charges"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Balance",
+			"description": "",
+			"item": [
+				{
+					"name": "Retrieve Balance",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.stripe.com/v1/charges/ch_1CkT8t2eZvKYlo2C59BewlSN",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"charges",
+								"ch_1CkT8t2eZvKYlo2C59BewlSN"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a balance transaction",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.stripe.com/v1/balance/history/txn_19XJJ02eZvKYlo2ClwuJ1rbA",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"balance",
+								"history",
+								"txn_19XJJ02eZvKYlo2ClwuJ1rbA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all balance history",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.stripe.com/v1/balance/history",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"balance",
+								"history"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"description": "",
+			"item": [
+				{
+					"name": "Create a Customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "Customer for arinzennajidaniel@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "source",
+									"value": "tok_mastercard",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.stripe.com/v1/customers",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "Customer for arinzennajidaniel@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "source",
+									"value": "tok_mastercard",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.stripe.com/v1/customers",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a customer",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.stripe.com/v1/customers/cus_DAoh9TowUYm7zh",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"customers",
+								"cus_DAoh9TowUYm7zh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all customers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.stripe.com/v1/customers",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a customer",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.stripe.com/v1/customers/cus_DAp9FJCO6WF0Qa",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"customers",
+								"cus_DAp9FJCO6WF0Qa"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
